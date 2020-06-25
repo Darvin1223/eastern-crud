@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud - eastern</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="/" class="navbar-brand">CRUD-eastern productos</a>
+    </nav>
+
+
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr> 
+                        <th>№</th>
+                        <th>NOMBRE</th>
+                        <th>ESTADO</th>
+                        <th>PRECIO</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data){ %>
+                        <% for(var i = 0; i <data.length; i++ ){%>
+                            <tr>
+                                <td><%=  (i + 1) %></td>
+                                <td><%=  data[i].nombre %></td>
+                                <td><%=  data[i].estado %></td>
+                                <td><%=  data[i].precio %></td>
+                                <td>
+                                    <a href="/delete/<%= data[i].id%>" class="btn btn-danger">Eliminar</a>
+                                    <a href="/update/<%= data[i].id%>" class="btn btn-info">Editar</a>
+                                </td>
+                            </tr>
+                       <% } %>
+                    <%} %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-5">
+           <div class="card">
+               <div class="card-body">
+                <form action="/add" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="nombre del articulo" class="form-control" id="">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="estado" placeholder="estado del articulo" class="form-control" id="">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="precio" placeholder="Precio del articulo" class="form-control" id="">
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        guarde el articulo
+                    </button>
+                </form>
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
