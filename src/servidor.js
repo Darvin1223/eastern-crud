@@ -23,14 +23,14 @@ app.set('views', path.join(__dirname, 'views'));
 //middlewares
 app.use(morgan('dev'));
 app.use(myConnection(mysql, {
-    host:'localhost',
-    user:'root',
-    password:'1234',
+    host:'bnmt47zyi4luzpk7yj5o-mysql.services.clever-cloud.com',
+    user:'u4ca8aiivz8zlrtl',
+    password:'YnGaEXnRWBqMsfb7hPwh',
     port:3306,
-    database: 'crudcelulares'
+    database: 'bnmt47zyi4luzpk7yj5o'
 }, 'single'));
 
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 
 //routes
 app.use('/', productoRouters);
